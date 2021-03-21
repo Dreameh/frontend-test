@@ -22,3 +22,6 @@ jobs:
     steps:
       - name: GitHub Action for Yarn
         uses: Borales/actions-yarn@v2.3.0
+      # Runs a single command using the runners shell
+      - name: Build Project
+        run: yarn build
