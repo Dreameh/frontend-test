@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Node sample
+    name: Node install & build
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
