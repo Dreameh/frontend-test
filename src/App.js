@@ -8,7 +8,7 @@ import { CardGroup } from "react-bootstrap";
 import ProjectCard from './components/ProjectCard';
 import loadingCards from './components/loadingCards';
 
-const API_URL = NODE_ENV === 'development' ? process.env.REACT_APP_API_URL : window.API_URL;
+const API_URL = window.API_URL;
 
 const List = (props) => {
   const { projects } = props;
