@@ -8,6 +8,8 @@ import { CardGroup } from "react-bootstrap";
 import ProjectCard from './components/ProjectCard';
 import loadingCards from './components/loadingCards';
 
+const API_URL = NODE_ENV === 'development' ? process.env.REACT_APP_API_URL : window.API_URL;
+
 const List = (props) => {
   const { projects } = props;
   if (!projects || projects.length === 0) return <p>No projects, for some reason.</p>;
@@ -32,7 +34,7 @@ const App = () => {
 
   useEffect(() => {
     setAppState({ loading: true });
-    const apiUrl = process.env.API_URL || "http://localhost:8080/projects";
+    const apiUrl = API_URL || "http://localhost:8080/projects";
     fetch (apiUrl)
       .then(res => res.json())
       .then(projects => {

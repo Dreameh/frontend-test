@@ -5,8 +5,11 @@ const port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'build')))
 
+// load the value in the server
+const { API_URL } = process.env;
+
 app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'))
+  res.render(path.join(__dirname, 'build', 'index.html'), {API_URL})
 })
 
 // default Heroku PORT
