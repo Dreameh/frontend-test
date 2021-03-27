@@ -8,8 +8,8 @@ RUN yarn install
 
 COPY . .
 
-RUN ROOT_API=http://localhost:5001 yarn build
+RUN yarn build
 
-EXPOSE 8080
+EXPOSE 3000
 
 CMD [ "yarn", "start" ]

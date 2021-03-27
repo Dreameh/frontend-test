@@ -12,9 +12,6 @@ class ProjectCard extends React.Component {
             {this.props.text}
           </Card.Text>
         </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Created {this.props.created}</small>
-        </Card.Footer>
       </Card>
     );
   }

@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'build')));
 
@@ -9,4 +10,6 @@ app.get('/*', function (req, res) {
 });
 
 // default Heroku PORT
-app.listen(process.env.PORT || 3000);
+app.listen(port, () => {
+  console.log("Server has started on: " + port)
+});

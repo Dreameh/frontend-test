@@ -8,7 +8,7 @@ import { CardGroup } from "react-bootstrap";
 import ProjectCard from './components/ProjectCard';
 import loadingCards from './components/loadingCards';
 
-require('dotenv').config()
+require('dotenv').config({debug: process.env.DEBUG })
 
 const List = (props) => {
   const { projects } = props;
@@ -28,16 +28,16 @@ const List = (props) => {
 const App = () => {
   const ListLoading = loadingCards(List);
   const [ appState, setAppState ] = useState({
-    loading: false,
+    loading: true,
     projects: null,
   });
 
   useEffect(() => {
     setAppState({ loading: true });
-    const apiUrl = process.env.API_URL;
+    const apiUrl = process.env.API_URL || "http://localhost:8080/projects";
     fetch (apiUrl)
-      .then((res) => res.json())
-      .then((projects) => {
+      .then(res => res.json())
+      .then(projects => {
         setAppState({ loading: false, projects: projects });
       })
   }, [setAppState]);
