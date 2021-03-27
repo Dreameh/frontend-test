@@ -8,8 +8,6 @@ import { CardGroup } from "react-bootstrap";
 import ProjectCard from './components/ProjectCard';
 import loadingCards from './components/loadingCards';
 
-require('dotenv').config({debug: process.env.DEBUG })
-
 const List = (props) => {
   const { projects } = props;
   if (!projects || projects.length === 0) return <p>No projects, for some reason.</p>;
