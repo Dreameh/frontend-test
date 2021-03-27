@@ -8,7 +8,7 @@ import { CardGroup } from "react-bootstrap";
 import ProjectCard from './components/ProjectCard';
 import loadingCards from './components/loadingCards';
 
-const API_URL = window.API_URL;
+const API_URL = "https://backend-testing-thesis.herokuapp.com/projects";
 
 const List = (props) => {
   const { projects } = props;
@@ -34,8 +34,7 @@ const App = () => {
 
   useEffect(() => {
     setAppState({ loading: true });
-    const apiUrl = API_URL || "http://localhost:8080/projects";
-    fetch (apiUrl)
+    fetch (API_URL)
       .then(res => res.json())
       .then(projects => {
         setAppState({ loading: false, projects: projects });
