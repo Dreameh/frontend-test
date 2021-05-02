@@ -20,7 +20,7 @@ jobs:
           architecture: 'x64' # optional, x64 or x86. If not specified, x64 will be used by default
       - run: yarn install
       - run: yarn build
-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
